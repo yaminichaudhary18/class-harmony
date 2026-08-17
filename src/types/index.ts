@@ -52,8 +52,8 @@ export interface Room {
   projector: boolean;
   smartBoard: boolean;
   computers: number;
-  equipment?: string;
-  software?: string;
+  equipment?: string | undefined;
+  software?: string | undefined;
   status: "available" | "maintenance";
 }
 
@@ -98,9 +98,9 @@ export interface Conflict {
   description: string;
   day: DayName;
   period: number;
-  facultyId?: string;
-  sectionId?: string;
-  roomId?: string;
+  facultyId?: string | undefined;
+  sectionId?: string | undefined;
+  roomId?: string | undefined;
   classIds: string[];
 }
 
@@ -128,7 +128,7 @@ export interface AppNotification {
   message: string;
   createdAt: string;
   read: boolean;
-  link?: string;
+  link?: string | undefined;
 }
 
 export interface Activity {
@@ -150,6 +150,6 @@ export interface AppUser {
   role: Role;
   name: string;
   email: string;
-  facultyId?: string;
-  sectionId?: string;
+  facultyId?: string | undefined;
+  sectionId?: string | undefined;
 }
