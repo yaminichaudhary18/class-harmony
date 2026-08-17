@@ -197,18 +197,18 @@ function runAttempt(input: SchedulerInput, seed: number): Attempt {
         if (slot.period === teaching[teaching.length - 1]) cost += 8;
       }
       if (soft.avoidFacultyConsecutive) {
-        const before = occupied.faculty.has(key(slot.day, periods[0] - 1, facultyMember.id));
-        const after = occupied.faculty.has(
-          key(slot.day, periods[periods.length - 1] + 1, facultyMember.id),
-        );
+        const first = periods[0]!;
+        const last = periods[periods.length - 1]!;
+        const before = occupied.faculty.has(key(slot.day, first - 1, facultyMember.id));
+        const after = occupied.faculty.has(key(slot.day, last + 1, facultyMember.id));
         if (before) cost += 5;
         if (after) cost += 5;
       }
       if (soft.avoidStudentConsecutive) {
-        const sBefore = occupied.section.has(key(slot.day, periods[0] - 1, section.id));
-        const sAfter = occupied.section.has(
-          key(slot.day, periods[periods.length - 1] + 1, section.id),
-        );
+        const sFirst = periods[0]!;
+        const sLast = periods[periods.length - 1]!;
+        const sBefore = occupied.section.has(key(slot.day, sFirst - 1, section.id));
+        const sAfter = occupied.section.has(key(slot.day, sLast + 1, section.id));
         if (sBefore && sAfter) cost += 10;
       }
       if (soft.balanceFacultyWorkload) {
@@ -255,7 +255,7 @@ function runAttempt(input: SchedulerInput, seed: number): Attempt {
 
   const unplaced = [...unplacedMap.entries()].map(([k, count]) => {
     const [sectionId, subjectId] = k.split("|");
-    return { sectionId, subjectId, count };
+    return { sectionId: sectionId!, subjectId: subjectId!, count };
   });
 
   return { classes, unplaced };
@@ -357,9 +357,10 @@ export function detectConflicts(
           description: `${label}: ${names}.`,
           day: day as DayName,
           period: Number(period),
-          facultyId: type === "faculty-clash" ? entityId : undefined,
-          roomId: type === "room-clash" ? entityId : undefined,
-          sectionId: type === "section-clash" ? entityId : undefined,
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          facultyId: type === "faculty-clash" ? entityId! : undefined,
+          roomId: type === "room-clash" ? entityId! : undefined,
+          sectionId: type === "section-clash" ? entityId! : undefined,
           classIds: unique,
         });
       }
@@ -543,7 +544,7 @@ export function autoFixConflict(
 
     const alts = findAlternativeSlots(cls, classes, input, { limit: 1 });
     if (alts.length) {
-      const alt = alts[0];
+      const alt = alts[0]!;
       return {
         classes: classes.map((c) =>
           c.id === cls.id ? { ...c, day: alt.day, period: alt.period, roomId: alt.roomId } : c,
