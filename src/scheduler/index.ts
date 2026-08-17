@@ -357,7 +357,7 @@ export function detectConflicts(
           description: `${label}: ${names}.`,
           day: day as DayName,
           period: Number(period),
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          
           facultyId: type === "faculty-clash" ? entityId! : undefined,
           roomId: type === "room-clash" ? entityId! : undefined,
           sectionId: type === "section-clash" ? entityId! : undefined,
