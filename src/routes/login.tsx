@@ -122,7 +122,7 @@ function LoginPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@college.edu"
                   />
-                  {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+                  {errors['email'] && <p className="text-xs text-destructive">{errors['email']}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="password">Password</Label>
@@ -133,7 +133,7 @@ function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
                   />
-                  {errors.password && <p className="text-xs text-destructive">{errors.password}</p>}
+                  {errors['password'] && <p className="text-xs text-destructive">{errors['password']}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="role">Role</Label>
