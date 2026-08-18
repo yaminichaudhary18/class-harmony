@@ -10,33 +10,453 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAvailabilityRouteImport } from './routes/admin.availability'
+import { Route as AdminClassroomsRouteImport } from './routes/admin.classrooms'
+import { Route as AdminConflictsRouteImport } from './routes/admin.conflicts'
+import { Route as AdminConstraintsRouteImport } from './routes/admin.constraints'
+import { Route as AdminFacultyRouteImport } from './routes/admin.faculty'
+import { Route as AdminLabsRouteImport } from './routes/admin.labs'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
+import { Route as AdminReschedulingRouteImport } from './routes/admin.rescheduling'
+import { Route as AdminSchedulerRouteImport } from './routes/admin.scheduler'
+import { Route as AdminSectionsRouteImport } from './routes/admin.sections'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminSubjectsRouteImport } from './routes/admin.subjects'
+import { Route as AdminTimetableRouteImport } from './routes/admin.timetable'
+import { Route as FacultyIndexRouteImport } from './routes/faculty.index'
+import { Route as FacultyAvailabilityRouteImport } from './routes/faculty.availability'
+import { Route as FacultyClassesRouteImport } from './routes/faculty.classes'
+import { Route as FacultyNotificationsRouteImport } from './routes/faculty.notifications'
+import { Route as FacultyProfileRouteImport } from './routes/faculty.profile'
+import { Route as FacultyRescheduleRouteImport } from './routes/faculty.reschedule'
+import { Route as FacultyTimetableRouteImport } from './routes/faculty.timetable'
+import { Route as StudentIndexRouteImport } from './routes/student.index'
+import { Route as StudentClassroomsRouteImport } from './routes/student.classrooms'
+import { Route as StudentNotificationsRouteImport } from './routes/student.notifications'
+import { Route as StudentProfileRouteImport } from './routes/student.profile'
+import { Route as StudentTimetableRouteImport } from './routes/student.timetable'
+import { Route as StudentTodayRouteImport } from './routes/student.today'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/admin/analytics',
+  path: '/admin/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAvailabilityRoute = AdminAvailabilityRouteImport.update({
+  id: '/admin/availability',
+  path: '/admin/availability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminClassroomsRoute = AdminClassroomsRouteImport.update({
+  id: '/admin/classrooms',
+  path: '/admin/classrooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminConflictsRoute = AdminConflictsRouteImport.update({
+  id: '/admin/conflicts',
+  path: '/admin/conflicts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminConstraintsRoute = AdminConstraintsRouteImport.update({
+  id: '/admin/constraints',
+  path: '/admin/constraints',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFacultyRoute = AdminFacultyRouteImport.update({
+  id: '/admin/faculty',
+  path: '/admin/faculty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLabsRoute = AdminLabsRouteImport.update({
+  id: '/admin/labs',
+  path: '/admin/labs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/admin/notifications',
+  path: '/admin/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminReschedulingRoute = AdminReschedulingRouteImport.update({
+  id: '/admin/rescheduling',
+  path: '/admin/rescheduling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSchedulerRoute = AdminSchedulerRouteImport.update({
+  id: '/admin/scheduler',
+  path: '/admin/scheduler',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSectionsRoute = AdminSectionsRouteImport.update({
+  id: '/admin/sections',
+  path: '/admin/sections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/admin/settings',
+  path: '/admin/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSubjectsRoute = AdminSubjectsRouteImport.update({
+  id: '/admin/subjects',
+  path: '/admin/subjects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminTimetableRoute = AdminTimetableRouteImport.update({
+  id: '/admin/timetable',
+  path: '/admin/timetable',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyIndexRoute = FacultyIndexRouteImport.update({
+  id: '/faculty/',
+  path: '/faculty/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyAvailabilityRoute = FacultyAvailabilityRouteImport.update({
+  id: '/faculty/availability',
+  path: '/faculty/availability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyClassesRoute = FacultyClassesRouteImport.update({
+  id: '/faculty/classes',
+  path: '/faculty/classes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyNotificationsRoute = FacultyNotificationsRouteImport.update({
+  id: '/faculty/notifications',
+  path: '/faculty/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyProfileRoute = FacultyProfileRouteImport.update({
+  id: '/faculty/profile',
+  path: '/faculty/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyRescheduleRoute = FacultyRescheduleRouteImport.update({
+  id: '/faculty/reschedule',
+  path: '/faculty/reschedule',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyTimetableRoute = FacultyTimetableRouteImport.update({
+  id: '/faculty/timetable',
+  path: '/faculty/timetable',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentIndexRoute = StudentIndexRouteImport.update({
+  id: '/student/',
+  path: '/student/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentClassroomsRoute = StudentClassroomsRouteImport.update({
+  id: '/student/classrooms',
+  path: '/student/classrooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentNotificationsRoute = StudentNotificationsRouteImport.update({
+  id: '/student/notifications',
+  path: '/student/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentProfileRoute = StudentProfileRouteImport.update({
+  id: '/student/profile',
+  path: '/student/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentTimetableRoute = StudentTimetableRouteImport.update({
+  id: '/student/timetable',
+  path: '/student/timetable',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentTodayRoute = StudentTodayRouteImport.update({
+  id: '/student/today',
+  path: '/student/today',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/features': typeof FeaturesRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/login': typeof LoginRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/availability': typeof AdminAvailabilityRoute
+  '/admin/classrooms': typeof AdminClassroomsRoute
+  '/admin/conflicts': typeof AdminConflictsRoute
+  '/admin/constraints': typeof AdminConstraintsRoute
+  '/admin/faculty': typeof AdminFacultyRoute
+  '/admin/labs': typeof AdminLabsRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/rescheduling': typeof AdminReschedulingRoute
+  '/admin/scheduler': typeof AdminSchedulerRoute
+  '/admin/sections': typeof AdminSectionsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/subjects': typeof AdminSubjectsRoute
+  '/admin/timetable': typeof AdminTimetableRoute
+  '/faculty/availability': typeof FacultyAvailabilityRoute
+  '/faculty/classes': typeof FacultyClassesRoute
+  '/faculty/notifications': typeof FacultyNotificationsRoute
+  '/faculty/profile': typeof FacultyProfileRoute
+  '/faculty/reschedule': typeof FacultyRescheduleRoute
+  '/faculty/timetable': typeof FacultyTimetableRoute
+  '/student/classrooms': typeof StudentClassroomsRoute
+  '/student/notifications': typeof StudentNotificationsRoute
+  '/student/profile': typeof StudentProfileRoute
+  '/student/timetable': typeof StudentTimetableRoute
+  '/student/today': typeof StudentTodayRoute
+  '/admin/': typeof AdminIndexRoute
+  '/faculty/': typeof FacultyIndexRoute
+  '/student/': typeof StudentIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/features': typeof FeaturesRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/login': typeof LoginRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/availability': typeof AdminAvailabilityRoute
+  '/admin/classrooms': typeof AdminClassroomsRoute
+  '/admin/conflicts': typeof AdminConflictsRoute
+  '/admin/constraints': typeof AdminConstraintsRoute
+  '/admin/faculty': typeof AdminFacultyRoute
+  '/admin/labs': typeof AdminLabsRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/rescheduling': typeof AdminReschedulingRoute
+  '/admin/scheduler': typeof AdminSchedulerRoute
+  '/admin/sections': typeof AdminSectionsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/subjects': typeof AdminSubjectsRoute
+  '/admin/timetable': typeof AdminTimetableRoute
+  '/faculty/availability': typeof FacultyAvailabilityRoute
+  '/faculty/classes': typeof FacultyClassesRoute
+  '/faculty/notifications': typeof FacultyNotificationsRoute
+  '/faculty/profile': typeof FacultyProfileRoute
+  '/faculty/reschedule': typeof FacultyRescheduleRoute
+  '/faculty/timetable': typeof FacultyTimetableRoute
+  '/student/classrooms': typeof StudentClassroomsRoute
+  '/student/notifications': typeof StudentNotificationsRoute
+  '/student/profile': typeof StudentProfileRoute
+  '/student/timetable': typeof StudentTimetableRoute
+  '/student/today': typeof StudentTodayRoute
+  '/admin': typeof AdminIndexRoute
+  '/faculty': typeof FacultyIndexRoute
+  '/student': typeof StudentIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/features': typeof FeaturesRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/login': typeof LoginRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/availability': typeof AdminAvailabilityRoute
+  '/admin/classrooms': typeof AdminClassroomsRoute
+  '/admin/conflicts': typeof AdminConflictsRoute
+  '/admin/constraints': typeof AdminConstraintsRoute
+  '/admin/faculty': typeof AdminFacultyRoute
+  '/admin/labs': typeof AdminLabsRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/rescheduling': typeof AdminReschedulingRoute
+  '/admin/scheduler': typeof AdminSchedulerRoute
+  '/admin/sections': typeof AdminSectionsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/subjects': typeof AdminSubjectsRoute
+  '/admin/timetable': typeof AdminTimetableRoute
+  '/faculty/availability': typeof FacultyAvailabilityRoute
+  '/faculty/classes': typeof FacultyClassesRoute
+  '/faculty/notifications': typeof FacultyNotificationsRoute
+  '/faculty/profile': typeof FacultyProfileRoute
+  '/faculty/reschedule': typeof FacultyRescheduleRoute
+  '/faculty/timetable': typeof FacultyTimetableRoute
+  '/student/classrooms': typeof StudentClassroomsRoute
+  '/student/notifications': typeof StudentNotificationsRoute
+  '/student/profile': typeof StudentProfileRoute
+  '/student/timetable': typeof StudentTimetableRoute
+  '/student/today': typeof StudentTodayRoute
+  '/admin/': typeof AdminIndexRoute
+  '/faculty/': typeof FacultyIndexRoute
+  '/student/': typeof StudentIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/features'
+    | '/how-it-works'
+    | '/login'
+    | '/admin/analytics'
+    | '/admin/availability'
+    | '/admin/classrooms'
+    | '/admin/conflicts'
+    | '/admin/constraints'
+    | '/admin/faculty'
+    | '/admin/labs'
+    | '/admin/notifications'
+    | '/admin/rescheduling'
+    | '/admin/scheduler'
+    | '/admin/sections'
+    | '/admin/settings'
+    | '/admin/subjects'
+    | '/admin/timetable'
+    | '/faculty/availability'
+    | '/faculty/classes'
+    | '/faculty/notifications'
+    | '/faculty/profile'
+    | '/faculty/reschedule'
+    | '/faculty/timetable'
+    | '/student/classrooms'
+    | '/student/notifications'
+    | '/student/profile'
+    | '/student/timetable'
+    | '/student/today'
+    | '/admin/'
+    | '/faculty/'
+    | '/student/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/features'
+    | '/how-it-works'
+    | '/login'
+    | '/admin/analytics'
+    | '/admin/availability'
+    | '/admin/classrooms'
+    | '/admin/conflicts'
+    | '/admin/constraints'
+    | '/admin/faculty'
+    | '/admin/labs'
+    | '/admin/notifications'
+    | '/admin/rescheduling'
+    | '/admin/scheduler'
+    | '/admin/sections'
+    | '/admin/settings'
+    | '/admin/subjects'
+    | '/admin/timetable'
+    | '/faculty/availability'
+    | '/faculty/classes'
+    | '/faculty/notifications'
+    | '/faculty/profile'
+    | '/faculty/reschedule'
+    | '/faculty/timetable'
+    | '/student/classrooms'
+    | '/student/notifications'
+    | '/student/profile'
+    | '/student/timetable'
+    | '/student/today'
+    | '/admin'
+    | '/faculty'
+    | '/student'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/features'
+    | '/how-it-works'
+    | '/login'
+    | '/admin/analytics'
+    | '/admin/availability'
+    | '/admin/classrooms'
+    | '/admin/conflicts'
+    | '/admin/constraints'
+    | '/admin/faculty'
+    | '/admin/labs'
+    | '/admin/notifications'
+    | '/admin/rescheduling'
+    | '/admin/scheduler'
+    | '/admin/sections'
+    | '/admin/settings'
+    | '/admin/subjects'
+    | '/admin/timetable'
+    | '/faculty/availability'
+    | '/faculty/classes'
+    | '/faculty/notifications'
+    | '/faculty/profile'
+    | '/faculty/reschedule'
+    | '/faculty/timetable'
+    | '/student/classrooms'
+    | '/student/notifications'
+    | '/student/profile'
+    | '/student/timetable'
+    | '/student/today'
+    | '/admin/'
+    | '/faculty/'
+    | '/student/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  FeaturesRoute: typeof FeaturesRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  LoginRoute: typeof LoginRoute
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAvailabilityRoute: typeof AdminAvailabilityRoute
+  AdminClassroomsRoute: typeof AdminClassroomsRoute
+  AdminConflictsRoute: typeof AdminConflictsRoute
+  AdminConstraintsRoute: typeof AdminConstraintsRoute
+  AdminFacultyRoute: typeof AdminFacultyRoute
+  AdminLabsRoute: typeof AdminLabsRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminReschedulingRoute: typeof AdminReschedulingRoute
+  AdminSchedulerRoute: typeof AdminSchedulerRoute
+  AdminSectionsRoute: typeof AdminSectionsRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminSubjectsRoute: typeof AdminSubjectsRoute
+  AdminTimetableRoute: typeof AdminTimetableRoute
+  FacultyAvailabilityRoute: typeof FacultyAvailabilityRoute
+  FacultyClassesRoute: typeof FacultyClassesRoute
+  FacultyNotificationsRoute: typeof FacultyNotificationsRoute
+  FacultyProfileRoute: typeof FacultyProfileRoute
+  FacultyRescheduleRoute: typeof FacultyRescheduleRoute
+  FacultyTimetableRoute: typeof FacultyTimetableRoute
+  StudentClassroomsRoute: typeof StudentClassroomsRoute
+  StudentNotificationsRoute: typeof StudentNotificationsRoute
+  StudentProfileRoute: typeof StudentProfileRoute
+  StudentTimetableRoute: typeof StudentTimetableRoute
+  StudentTodayRoute: typeof StudentTodayRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  FacultyIndexRoute: typeof FacultyIndexRoute
+  StudentIndexRoute: typeof StudentIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +468,267 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/admin/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/availability': {
+      id: '/admin/availability'
+      path: '/admin/availability'
+      fullPath: '/admin/availability'
+      preLoaderRoute: typeof AdminAvailabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/classrooms': {
+      id: '/admin/classrooms'
+      path: '/admin/classrooms'
+      fullPath: '/admin/classrooms'
+      preLoaderRoute: typeof AdminClassroomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/conflicts': {
+      id: '/admin/conflicts'
+      path: '/admin/conflicts'
+      fullPath: '/admin/conflicts'
+      preLoaderRoute: typeof AdminConflictsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/constraints': {
+      id: '/admin/constraints'
+      path: '/admin/constraints'
+      fullPath: '/admin/constraints'
+      preLoaderRoute: typeof AdminConstraintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/faculty': {
+      id: '/admin/faculty'
+      path: '/admin/faculty'
+      fullPath: '/admin/faculty'
+      preLoaderRoute: typeof AdminFacultyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/labs': {
+      id: '/admin/labs'
+      path: '/admin/labs'
+      fullPath: '/admin/labs'
+      preLoaderRoute: typeof AdminLabsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/admin/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/rescheduling': {
+      id: '/admin/rescheduling'
+      path: '/admin/rescheduling'
+      fullPath: '/admin/rescheduling'
+      preLoaderRoute: typeof AdminReschedulingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/scheduler': {
+      id: '/admin/scheduler'
+      path: '/admin/scheduler'
+      fullPath: '/admin/scheduler'
+      preLoaderRoute: typeof AdminSchedulerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/sections': {
+      id: '/admin/sections'
+      path: '/admin/sections'
+      fullPath: '/admin/sections'
+      preLoaderRoute: typeof AdminSectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/admin/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/subjects': {
+      id: '/admin/subjects'
+      path: '/admin/subjects'
+      fullPath: '/admin/subjects'
+      preLoaderRoute: typeof AdminSubjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/timetable': {
+      id: '/admin/timetable'
+      path: '/admin/timetable'
+      fullPath: '/admin/timetable'
+      preLoaderRoute: typeof AdminTimetableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/': {
+      id: '/faculty/'
+      path: '/faculty'
+      fullPath: '/faculty/'
+      preLoaderRoute: typeof FacultyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/availability': {
+      id: '/faculty/availability'
+      path: '/faculty/availability'
+      fullPath: '/faculty/availability'
+      preLoaderRoute: typeof FacultyAvailabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/classes': {
+      id: '/faculty/classes'
+      path: '/faculty/classes'
+      fullPath: '/faculty/classes'
+      preLoaderRoute: typeof FacultyClassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/notifications': {
+      id: '/faculty/notifications'
+      path: '/faculty/notifications'
+      fullPath: '/faculty/notifications'
+      preLoaderRoute: typeof FacultyNotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/profile': {
+      id: '/faculty/profile'
+      path: '/faculty/profile'
+      fullPath: '/faculty/profile'
+      preLoaderRoute: typeof FacultyProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/reschedule': {
+      id: '/faculty/reschedule'
+      path: '/faculty/reschedule'
+      fullPath: '/faculty/reschedule'
+      preLoaderRoute: typeof FacultyRescheduleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty/timetable': {
+      id: '/faculty/timetable'
+      path: '/faculty/timetable'
+      fullPath: '/faculty/timetable'
+      preLoaderRoute: typeof FacultyTimetableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student/': {
+      id: '/student/'
+      path: '/student'
+      fullPath: '/student/'
+      preLoaderRoute: typeof StudentIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student/classrooms': {
+      id: '/student/classrooms'
+      path: '/student/classrooms'
+      fullPath: '/student/classrooms'
+      preLoaderRoute: typeof StudentClassroomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student/notifications': {
+      id: '/student/notifications'
+      path: '/student/notifications'
+      fullPath: '/student/notifications'
+      preLoaderRoute: typeof StudentNotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student/profile': {
+      id: '/student/profile'
+      path: '/student/profile'
+      fullPath: '/student/profile'
+      preLoaderRoute: typeof StudentProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student/timetable': {
+      id: '/student/timetable'
+      path: '/student/timetable'
+      fullPath: '/student/timetable'
+      preLoaderRoute: typeof StudentTimetableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student/today': {
+      id: '/student/today'
+      path: '/student/today'
+      fullPath: '/student/today'
+      preLoaderRoute: typeof StudentTodayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  FeaturesRoute: FeaturesRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  LoginRoute: LoginRoute,
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAvailabilityRoute: AdminAvailabilityRoute,
+  AdminClassroomsRoute: AdminClassroomsRoute,
+  AdminConflictsRoute: AdminConflictsRoute,
+  AdminConstraintsRoute: AdminConstraintsRoute,
+  AdminFacultyRoute: AdminFacultyRoute,
+  AdminLabsRoute: AdminLabsRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminReschedulingRoute: AdminReschedulingRoute,
+  AdminSchedulerRoute: AdminSchedulerRoute,
+  AdminSectionsRoute: AdminSectionsRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminSubjectsRoute: AdminSubjectsRoute,
+  AdminTimetableRoute: AdminTimetableRoute,
+  FacultyAvailabilityRoute: FacultyAvailabilityRoute,
+  FacultyClassesRoute: FacultyClassesRoute,
+  FacultyNotificationsRoute: FacultyNotificationsRoute,
+  FacultyProfileRoute: FacultyProfileRoute,
+  FacultyRescheduleRoute: FacultyRescheduleRoute,
+  FacultyTimetableRoute: FacultyTimetableRoute,
+  StudentClassroomsRoute: StudentClassroomsRoute,
+  StudentNotificationsRoute: StudentNotificationsRoute,
+  StudentProfileRoute: StudentProfileRoute,
+  StudentTimetableRoute: StudentTimetableRoute,
+  StudentTodayRoute: StudentTodayRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  FacultyIndexRoute: FacultyIndexRoute,
+  StudentIndexRoute: StudentIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
