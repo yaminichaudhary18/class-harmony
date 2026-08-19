@@ -40,8 +40,9 @@ export const Route = createFileRoute("/admin/timetable")({
 function TimetablePage() {
   const store = useStore();
   const { timetable, sections, subjects, faculty, rooms, settings, schedulerInput } = store;
-  const [view, setView] = useState<"section" | "day">("section");
+  const [view, setView] = useState<"section" | "day" | "room">("section");
   const [sectionId, setSectionId] = useState(sections[0]?.id ?? "");
+  const [selectedRoomId, setSelectedRoomId] = useState(rooms[0]?.id ?? "");
   const [day, setDay] = useState(settings.workingDays[0] ?? "Mon");
   const [facultyFilter, setFacultyFilter] = useState("all");
   const [roomFilter, setRoomFilter] = useState("all");
@@ -50,9 +51,9 @@ function TimetablePage() {
   const classes = useMemo(() => {
     let list = timetable?.classes ?? [];
     if (facultyFilter !== "all") list = list.filter((c) => c.facultyId === facultyFilter);
-    if (roomFilter !== "all") list = list.filter((c) => c.roomId === roomFilter);
+    if (view !== "room" && roomFilter !== "all") list = list.filter((c) => c.roomId === roomFilter);
     return list;
-  }, [timetable, facultyFilter, roomFilter]);
+  }, [timetable, facultyFilter, roomFilter, view]);
 
   const conflicts = useMemo(
     () => (timetable ? detectConflicts(timetable.classes, schedulerInput) : []),
@@ -84,16 +85,20 @@ function TimetablePage() {
   }
 
   const columns =
-    view === "section"
-      ? settings.workingDays.map((d) => ({ id: d, label: d }))
-      : sections.map((s) => ({ id: s.id, label: s.name }));
+    view === "day"
+      ? sections.map((s) => ({ id: s.id, label: s.name }))
+      : settings.workingDays.map((d) => ({ id: d, label: d }));
 
   const getClasses = (columnId: string, period: number) =>
     classes.filter((c) => {
       if (!coversPeriod(c, period)) return false;
-      return view === "section"
-        ? c.day === columnId && c.sectionId === sectionId
-        : c.day === day && c.sectionId === columnId;
+      if (view === "room") {
+        return c.day === columnId && c.roomId === selectedRoomId;
+      }
+      if (view === "section") {
+        return c.day === columnId && c.sectionId === sectionId;
+      }
+      return c.day === day && c.sectionId === columnId;
     });
 
   const regenerate = () => {
@@ -151,17 +156,18 @@ function TimetablePage() {
       }
     >
       <div className="mb-4 flex flex-wrap items-center gap-2">
-        <Select value={view} onValueChange={(v) => setView(v as "section" | "day")}>
-          <SelectTrigger className="w-44">
+        <Select value={view} onValueChange={(v) => setView(v as "section" | "day" | "room")}>
+          <SelectTrigger className="w-48">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="section">Section view (week)</SelectItem>
             <SelectItem value="day">Day view (all sections)</SelectItem>
+            <SelectItem value="room">Room view (week)</SelectItem>
           </SelectContent>
         </Select>
 
-        {view === "section" ? (
+        {view === "section" && (
           <Select value={sectionId} onValueChange={setSectionId}>
             <SelectTrigger className="w-40">
               <SelectValue placeholder="Section" />
@@ -174,7 +180,9 @@ function TimetablePage() {
               ))}
             </SelectContent>
           </Select>
-        ) : (
+        )}
+
+        {view === "day" && (
           <Select value={day} onValueChange={(v) => setDay(v as typeof day)}>
             <SelectTrigger className="w-32">
               <SelectValue />
@@ -183,6 +191,21 @@ function TimetablePage() {
               {settings.workingDays.map((d) => (
                 <SelectItem key={d} value={d}>
                   {d}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
+
+        {view === "room" && (
+          <Select value={selectedRoomId} onValueChange={setSelectedRoomId}>
+            <SelectTrigger className="w-48">
+              <SelectValue placeholder="Select Room" />
+            </SelectTrigger>
+            <SelectContent>
+              {rooms.map((r) => (
+                <SelectItem key={r.id} value={r.id}>
+                  {r.number} ({r.building})
                 </SelectItem>
               ))}
             </SelectContent>
@@ -203,19 +226,21 @@ function TimetablePage() {
           </SelectContent>
         </Select>
 
-        <Select value={roomFilter} onValueChange={setRoomFilter}>
-          <SelectTrigger className="w-44">
-            <SelectValue placeholder="Room" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All rooms</SelectItem>
-            {rooms.map((r) => (
-              <SelectItem key={r.id} value={r.id}>
-                {r.number}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        {view !== "room" && (
+          <Select value={roomFilter} onValueChange={setRoomFilter}>
+            <SelectTrigger className="w-44">
+              <SelectValue placeholder="Room filter" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All rooms</SelectItem>
+              {rooms.map((r) => (
+                <SelectItem key={r.id} value={r.id}>
+                  {r.number}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
 
         <span className="ml-auto text-xs text-muted-foreground">
           {conflicts.length === 0 ? "0 hard conflicts" : `${conflicts.length} conflicts`}
