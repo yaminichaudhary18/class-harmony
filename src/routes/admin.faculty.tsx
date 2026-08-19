@@ -24,7 +24,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useStore } from "@/store/app-store";
-import { demoDays } from "@/data/demoData";
+import { DAYS } from "@/data/demoData";
 import type { Faculty } from "@/types";
 
 export const Route = createFileRoute("/admin/faculty")({
@@ -46,7 +46,7 @@ const blank = (): Faculty => ({
   department: "CSE",
   email: "",
   maxClassesPerDay: 4,
-  availability: Object.fromEntries(demoDays.map((d) => [d, Array(8).fill(true)])),
+  availability: Object.fromEntries(DAYS.map((d) => [d, Array(8).fill(true)])),
 });
 
 function FacultyPage() {
